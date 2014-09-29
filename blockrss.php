@@ -155,18 +155,18 @@ class Blockrss extends Module
 									$xmlValues[$xmlField] = $item->__get($xmlField);
 								$xmlValues['enclosure'] = $item->getEnclosure();
 								
-								# First image
-								if(isset($xmlValues['content']) && $xmlValues['content']) {
+								// First image
+								if (isset($xmlValues['content']) && $xmlValues['content']) {
 						                        preg_match('/< *img[^>]*src *= *["\']?([^"\']*)/', $xmlValues['content'], $image);
-						                        if(array_key_exists(1, $image) && $image[1]) {
-						                        	# Try if distant image exist : timeout 0.3s
+						                        if (array_key_exists(1, $image) && $image[1]) {
+						                        	// Try if distant image exist : timeout 0.3s
 						                        	$context = stream_context_create(array('http' => array('timeout' => 0.3)));
-						                        	if(false !== file_get_contents($image[1], false, $context, -1, 1))
+						                        	if (false !== file_get_contents($image[1], false, $context, -1, 1))
 						                        		$xmlValues['image'] = $image[1];
 						                        }
 								}
 								
-								# Compatibility
+								// Compatibility
 								$xmlValues['url'] = $xmlValues['link']; 
 								$rss_links[] = $xmlValues;
 							}
