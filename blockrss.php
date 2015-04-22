@@ -154,7 +154,7 @@ class Blockrss extends Module
 									{
 										// Try if distant image exist : timeout 0.3s
 										$context = stream_context_create(array('http' => array('timeout' => 0.3)));
-										if (file_get_contents($image[1], false, $context, -1, 1) !== false)
+										if (Tools::file_get_contents($image[1], false, $context, -1, 1) !== false)
 											$xmlValues['image'] = $image[1];
 									}
 								}
