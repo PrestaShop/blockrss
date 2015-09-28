@@ -153,7 +153,7 @@ class Blockrss extends Module
 									if (array_key_exists(1, $image) && $image[1])
 									{
 										if ($image[1][0] == '/')
-											$image[1] .= 'http:'.$image[1];
+											$image[1] = 'http:'.$image[1];
 										// Try if distant image exist : timeout 0.3s
 										$context = stream_context_create(array('http' => array('timeout' => 0.3)));
 										if (file_get_contents($image[1], false, $context, -1, 1) !== false)
