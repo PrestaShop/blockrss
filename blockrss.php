@@ -47,7 +47,7 @@ class Blockrss extends Module
 		$this->displayName = $this->l('RSS feed block');
 		$this->description = $this->l('Adds a block displaying a RSS feed.');
 
-		$this->version = '1.3.1';
+		$this->version = '1.3.2';
 		$this->author = 'PrestaShop';
 		$this->error = false;
 		$this->valid = false;
